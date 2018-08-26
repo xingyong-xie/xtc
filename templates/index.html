@@ -180,14 +180,14 @@
                             <br/> 户内体能：以专业的幼儿体能训练，如迷你跑、往返数字垫游戏、交接棒比赛、伸展练习、障碍跑比赛、独木桥、平衡训练等徐连儿童对运动肢体的反射反应，改变孩子行动迟缓、肢体反应慢等，提高孩子观察事物敏捷反应能力。
                         </p>
                     </section>
-                    <section title="外籍教师进行纯英文授课，根据孩子语言发展关键期特点和孩子语言基础，配以针对性的系统教材和量身打造的学习游戏，在学习英语的同时注重开发宝宝多元智能。">
+                    <section>
                         <span class="icon style2 major fa-hashtag "></span>
                         <h3>英语课</h3>
                         <h4>3-6岁</h4>
                         <p>外籍教师进行纯英文授课，根据孩子语言发展关键期特点和孩子语言基础，配以针对性的系统教材和量身打造的学习游戏，在学习英语的同时注重开发宝宝多元智能。
                         </p>
                     </section>
-                    <section id ='more_info'>
+                    <section>
                         <span class="icon style2 major fa-refresh "></span>
                         <h3>厨艺课</h3>
                         <h4>2-6岁</h4>
@@ -196,16 +196,17 @@
                 </div>
                 <style type="text/css">
                     #course p {
-                        display: none
+                        display: none;
+                        background-color:rgb(200, 200, 200)
                     }
                 </style>
                 <script type="text/javascript">
-                    $("#course").mouseenter(function () {
-                        $("p.more_info").show();
+                    $("#course section").mouseenter(function () {
+                        $(this).find('p').css('display','block');
                     });
 
-                    $("#course").mouseleave(function () {
-                        $("p.more_info").hide();
+                    $("#course section").mouseleave(function () {
+                        $(this).find('p').css('display','none');
                     })
                 </script>
             </div>
