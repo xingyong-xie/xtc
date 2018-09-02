@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    {% load staticfiles %}
+    <title>小天才国际儿童成长中心</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    <meta name="description" content="小天才国际儿童成长中心">
+    <meta name="keywords" content="小天才 早教 幼教 托育 双语">
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript>
+        <link rel="stylesheet" href="assets/css/noscript.css" />
+    </noscript>
+
+</head>
+
+<body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper" class="divided">
+
+        {% include 'nav.html' %} {% block mainbody %}
+        <p> basic mainbody </p>
+        {% endblock %}
+
+        <!-- Footer -->
+        <footer class="wrapper style1 align-center ">
+            <div class="inner ">
+                <ul class="icons ">
+                    <li><a href="# " class="icon style2 fa-twitter "><span class="label ">Twitter</span></a></li>
+                    <li><a href="# " class="icon style2 fa-facebook "><span class="label ">Facebook</span></a></li>
+                    <li><a href="# " class="icon style2 fa-instagram "><span class="label ">Instagram</span></a></li>
+                    <li><a href="# " class="icon style2 fa-linkedin "><span class="label ">LinkedIn</span></a></li>
+                    <li><a href="# " class="icon style2 fa-envelope "><span class="label ">Email</span></a></li>
+                </ul>
+                <p>&copy; Untitled. Design: <a href="https://html5up.net ">HTML5 UP</a>.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js "></script>
+    <script src="assets/js/jquery.scrollex.min.js "></script>
+    <script src="assets/js/jquery.scrolly.min.js "></script>
+    <script src="assets/js/browser.min.js "></script>
+    <script src="assets/js/breakpoints.min.js "></script>
+    <script src="assets/js/util.js "></script>
+    <script src="assets/js/main.js "></script>
+
+</body>
+
+</html>
