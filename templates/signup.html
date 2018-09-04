@@ -19,27 +19,36 @@
     <div id='register' class="wrapper style1 align-center ">
         <div class="inner small" style="background-color: rgb(243, 242, 242)">
             <h3>在线填写报名表</h3>
-            <form method="post " action="signup">
+            <form method="POST" action="register">
+                {% csrf_token %}
                 <div class="fields ">
-                    <div class="field ">
-                        <input type="text" name="name " id="name " value="" placeholder="宝贝姓名" />
+                    <div class="field">
+                        <input type="text" name="name" id="name" value="" placeholder="宝贝姓名" required/>
                     </div>
                     <div class="field">
-                        <input type="text" name="birth " id="birth " value="" placeholder="出生年月" />
+                        <input type="text" onfocus="(this.type='date')" id="birthday" name="birth" placeholder="出生日期" required/>
                     </div>
                     <div class="field ">
-                        <input type="text" name="parent " id="parent " value="" placeholder="家长姓名" />
+                        <input type="text" name="parent" id="parent" value="" placeholder="家长姓名" required/>
                     </div>
                     <div class="field">
-                        <input type="text" name="phone_number " id="phone_number " value="" placeholder="电话号码" />
+                        <input type="tel" name="phone" id="phone_number" value="" placeholder="电话号码" required/>
                     </div>
                     <div class="field ">
-                        <input type="text" name="address " id="address " value="" placeholder="家庭地址" />
+                        <input type="text" name="address" id="address" value="" placeholder="家庭地址" required/>
                     </div>
                 </div>
                 <ul class="actions special ">
-                    <input type="submit" name="submit " id="submit " value="确认提交 " />
+                    <input type="submit" name="submit" id="submit" value="确认提交 " />
                 </ul>
+                <script type='text/javascript'>
+                    $('#birthday').blur(function () {
+                        var obj = $(this);
+                        if (!obj.val()) {
+                            obj.prop('type', 'text');
+                        }
+                    });
+                </script>
             </form>
         </div>
     </div>

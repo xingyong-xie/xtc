@@ -17,7 +17,7 @@
 <section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
     <div class="content">
         <!--- <h1>Story</h1>  -->
-        <p class="major">小天才国际托育中心成立于2013年，目前已经在成都设立三家分店，与数千个家庭结缘。<br/> <br/> 未来，我们继续向前，启动多维发展理念和品牌升级计划，以全新的品牌形象与活力，继续助力家庭和孩子充分成长。
+        <p class="major">小天才国际托育中心成立于2013年，目前已经在成都设立五家分店，与数千个家庭结缘。<br/> <br/> 未来，我们继续向前，启动多维发展理念和品牌升级计划，以全新的品牌形象与活力，继续助力家庭和孩子充分成长。
 
             <br/><br/> 从体能-智能-心理能力三个领域驱动小天才的课程内容研发和教学系统的设计，通过不断提升高质量的课程及课程服务水平，结合当今全球领先的教育研究成果，以亲和于孩子的环境，全方位促进儿童的体能、心理、智力、性格、社交等多方面发展。
         </p>
@@ -102,8 +102,8 @@
 <!-- Six -->
 <section id="course" class="wrapper style1 align-center ">
     <div class="inner ">
-        <h2>课程特色</h2>
-        <div class="items style3 small onscroll-fade-in ">
+        <h2>特色课程</h2>
+        <div class="items style3 small onscroll-fade-in " >
             <section>
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="95"
                     height="95" viewBox="0 0 95 95">
@@ -198,7 +198,7 @@
         <style type="text/css">
             #course p {
                 display: none;
-                background-color: rgb(200, 200, 200)
+                background-color: rgba(200, 200, 200 ,0.4)
             }
         </style>
         <script type="text/javascript">
@@ -221,150 +221,20 @@
     </div>
 
     <div id="views" class="gallery style2 medium lightbox onscroll-fade-in">
+        {% for picture in picture_list%}
         <article>
-            <a href="images/gallery/fulls/01.jpg " class="image ">
-                <img src="images/gallery/thumbs/01.jpg " alt=" " />
+            <a href="images/{{picture.url}}" class="image ">
+                <img src="images/{{picture.url}}" alt=" " />
             </a>
             <div class="caption">
-                <h3>翡翠城2期</h3>
-                <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
+                <h3>{{picture.title}}</h3>
+                <p>{{picture.description}}</p>
                 <ul class="actions fixed ">
                     <li><span class="button small ">Details</span></li>
                 </ul>
             </div>
         </article>
-        <article>
-            <a href="images/gallery/fulls/02.jpg " class="image ">
-                <img src="images/gallery/thumbs/02.jpg " alt=" " />
-            </a>
-            <div class="caption ">
-                <h3>翡翠城4期</h3>
-                <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                <ul class="actions fixed ">
-                    <li><span class="button small ">Details</span></li>
-                </ul>
-            </div>
-        </article>
-        <article>
-            <a href="images/gallery/fulls/03.jpg " class="image ">
-                <img src="images/gallery/thumbs/03.jpg " alt=" " />
-            </a>
-            <div class="caption ">
-                <h3>金润华府A校区</h3>
-                <p>面积500平米，拥有开放式厨房，教室4间</p>
-                <ul class="actions fixed ">
-                    <li><span class="button small ">Details</span></li>
-                </ul>
-            </div>
-        </article>
-        <article>
-            <a href="images/gallery/fulls/04.jpg " class="image ">
-                <img src="images/gallery/thumbs/04.jpg " alt=" " />
-            </a>
-            <div class="caption ">
-                <h3>金润华府B校区</h3>
-                <p> 面积600平米, 拥有室内运动场, 图书角，英语教室，美术教室，多功能教室等</p>
-                <ul class="actions fixed ">
-                    <li><span class="button small ">Details</span></li>
-                </ul>
-            </div>
-        </article>
-        <article>
-            <a href="images/gallery/fulls/05.jpg " class="image ">
-                <img src="images/gallery/thumbs/05.jpg " alt=" " />
-            </a>
-            <div class="caption ">
-                <h3>Ultrices Magna</h3>
-                <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                <ul class="actions fixed ">
-                    <li><span class="button small ">Details</span></li>
-                </ul>
-            </div>
-        </article>
-        <article>
-            <a href="images/gallery/fulls/06.jpg " class="image ">
-                <img src="images/gallery/thumbs/06.jpg " alt=" " />
-            </a>
-            <div class="caption ">
-                <h3>Sed Tempus</h3>
-                <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                <ul class="actions fixed ">
-                    <li><span class="button small ">Details</span></li>
-                </ul>
-            </div>
-        </article>
-        <article>
-            <a href="images/gallery/fulls/07.jpg " class="image ">
-                <img src="images/gallery/thumbs/07.jpg " alt=" " />
-            </a>
-            <div class="caption ">
-                <h3>Ipsum Lorem</h3>
-                <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                <ul class="actions fixed ">
-                    <li><span class="button small ">Details</span></li>
-                </ul>
-            </div>
-        </article>
-        <article>
-            <a href="images/gallery/fulls/08.jpg " class="image ">
-                <img src="images/gallery/thumbs/08.jpg " alt=" " />
-            </a>
-            <div class="caption ">
-                <h3>Magna Risus</h3>
-                <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                <ul class="actions fixed ">
-                    <li><span class="button small ">Details</span></li>
-                </ul>
-            </div>
-        </article>
-        <article>
-            <a href="images/gallery/fulls/09.jpg " class="image ">
-                <img src="images/gallery/thumbs/09.jpg " alt=" " />
-            </a>
-            <div class="caption ">
-                <h3>Tempus Dolor</h3>
-                <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                <ul class="actions fixed ">
-                    <li><span class="button small ">Details</span></li>
-                </ul>
-            </div>
-        </article>
-        <article>
-            <a href="images/gallery/fulls/10.jpg " class="image ">
-                <img src="images/gallery/thumbs/10.jpg " alt=" " />
-            </a>
-            <div class="caption ">
-                <h3>Sed Etiam</h3>
-                <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                <ul class="actions fixed ">
-                    <li><span class="button small ">Details</span></li>
-                </ul>
-            </div>
-        </article>
-        <article>
-            <a href="images/gallery/fulls/11.jpg " class="image ">
-                <img src="images/gallery/thumbs/11.jpg " alt=" " />
-            </a>
-            <div class="caption ">
-                <h3>Magna Lorem</h3>
-                <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                <ul class="actions fixed ">
-                    <li><span class="button small ">Details</span></li>
-                </ul>
-            </div>
-        </article>
-        <article>
-            <a href="images/gallery/fulls/12.jpg " class="image ">
-                <img src="images/gallery/thumbs/12.jpg " alt=" " />
-            </a>
-            <div class="caption ">
-                <h3>Ipsum Dolor</h3>
-                <p>Lorem ipsum dolor amet, consectetur magna etiam elit. Etiam sed ultrices.</p>
-                <ul class="actions fixed ">
-                    <li><span class="button small ">Details</span></li>
-                </ul>
-            </div>
-        </article>
+        {% endfor%}
     </div>
 </section>
 
