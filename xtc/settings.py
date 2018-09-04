@@ -1,3 +1,4 @@
+# encoding: utf-8
 """
 Django settings for xtc project.
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',  #必须设置在第一个位置
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -49,6 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',#必须设置在最后一个位置
 )
 
 ROOT_URLCONF = 'xtc.urls'
@@ -103,7 +106,27 @@ USE_TZ = True
 STATIC_URL = '/assets/'
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 
-MEDIA_URL =  '/images/'
+MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "images")
 
 
+# CACHES 配置：
+CACHE_MIDDLEWARE_ALIAS = 'default'    #用来存储的缓存别名
+CACHE_MIDDLEWARE_SECONDS = 3600  #所有页面默认缓存时间,默认600
+#CACHE_MIDDLEWARE_KEY_PREFIX ='www.demo.com'  #关键的前缀，当多个站点使用同一个配置的时候，这个可以设置可以避免发生冲突,一般设置为网站域名
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY = False #那么只有匿名的请求会被缓存，这是一个禁用缓存非匿名用户页面的最简单的做法，注意确保已经启用了Django用户认证中间件
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',     # 引擎
+        # 缓存超时时间（默认300，None表示永不过期，0表示立即过期）
+        'TIMEOUT': 3600,
+        'OPTIONS': {
+            'MAX_ENTRIES': 300,                                       # 最大缓存个数（默认300）
+            # 缓存到达最大个数之后，剔除缓存个数的比例，即：1/CULL_FREQUENCY（默认3）
+            'CULL_FREQUENCY': 3,
+        },
+        'KEY_PREFIX': '',                                             # 缓存key的前缀（默认空）
+        'VERSION': 1,                                                 # 缓存key的版本（默认1）
+        #'KEY_FUNCTION' 函数名  #生成key的函数（默认函数会生成为：【前缀:版本:key】）
+    }
+}
