@@ -1,12 +1,6 @@
-/*@import url(font-awesome.min.css);*/
-@import url('font-awesome.min.css');
+@import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i");
 
-/*
-	Story by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
 
 html, body, div, span, applet, object,
 iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
@@ -23,16 +17,13 @@ section, summary, time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
+	font-family: "Microsoft Yahei","PingFang SC", "Tahoma","Helvetica Neue","Helvetica","Arial",sans-serif;
 	font: inherit;
 	vertical-align: baseline;}
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;}
-
-nav > a {
-	text-decoration: none;
-}
 
 body {
 	line-height: 1;
@@ -192,9 +183,9 @@ input, select, textarea {
 		margin: 0 0 2rem 0;
 	}
 
-	p.major {
-			font-size: 1.0rem;
-	}
+		p.major {
+			font-size: 1.25rem;
+		}
 
 	h1, h2, h3, h4, h5, h6 {
 		font-weight: 300;
@@ -5054,8 +5045,8 @@ input, select, textarea {
 				-ms-object-position: center;
 				object-position: center;
 				display: block;
-				width: auto;
-				height: auto;
+				width: 100%;
+				height: 100%;
 				border-radius: 100%;
 			}
 
@@ -5480,6 +5471,7 @@ input, select, textarea {
 			flex-shrink: 0;
 			position: absolute;
 			width: 100%;
+			height: 100%;
 			top: 0;
 			left: 0;
 			border-radius: 0;
@@ -5498,7 +5490,8 @@ input, select, textarea {
 				position: absolute;
 				top: 0;
 				left: 0;
-				width:100%;
+				width: 100%;
+				height: 100%;
 				border-radius: 0;
 			}
 
