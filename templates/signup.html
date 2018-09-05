@@ -19,11 +19,11 @@
     <div id='register' class="wrapper style1 align-center ">
         <div class="inner small" style="background-color: rgb(243, 242, 242)">
             <h3>在线填写报名表</h3>
-            <form method="POST" action="register">
+            <form method="POST" action="signup.html">
                 {% csrf_token %}
                 <div class="fields ">
                     <div class="field">
-                        <input type="text" name="name" id="name" value="" placeholder="宝贝姓名" required/>
+                        <input type="text" name="name" maxlength="4" value="" placeholder="宝贝姓名" required/>
                     </div>
                     <div class="field">
                         <input type="text" onfocus="(this.type='date')" id="birthday" name="birth" placeholder="出生日期" required/>

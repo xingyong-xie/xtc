@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'h$!4u6)7)atd*$-zfmzj0gqm$xg@f4a74xjrx5p=kr)1(0cc33'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -103,8 +103,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/assets/'
-STATIC_ROOT = os.path.join(BASE_DIR, "assets")
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_URL = '/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "images")
@@ -117,7 +117,8 @@ CACHE_MIDDLEWARE_SECONDS = 3600  #所有页面默认缓存时间,默认600
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = False #那么只有匿名的请求会被缓存，这是一个禁用缓存非匿名用户页面的最简单的做法，注意确保已经启用了Django用户认证中间件
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',     # 引擎
+        #'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',     # 引擎
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
         # 缓存超时时间（默认300，None表示永不过期，0表示立即过期）
         'TIMEOUT': 3600,
         'OPTIONS': {

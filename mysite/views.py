@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
-from mysite.models import student, picture
+from mysite.models import student, picture, course
 from django.conf import settings
 from django.views.generic.base import TemplateView
 
@@ -12,6 +12,13 @@ def template_as_view(template_name):
     def view(request):
         list = {}
         list['picture_list'] = picture.objects.filter(active=True)
+        return render(request, template_name, list)
+    return view
+
+def courses_view(template_name):
+    def view(request):
+        list = {}
+        list['picture_list'] = course.objects.filter(active=True)
         return render(request, template_name, list)
     return view
 
@@ -26,9 +33,12 @@ def signup_submit_view():
             s.phone = request.POST[u'phone']
             s.birth = request.POST[u'birth']
             s.parent_name = request.POST[u'parent']
+            s.info = ""
 
             # 接下来对这个form进行验证
             # if form.is_valid():
             s.save()
+            return render(request, "signok.html", {})
+        elif request.method == "GET":
             return render(request, "signup.html", {})
     return view
