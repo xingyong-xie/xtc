@@ -3,4 +3,7 @@
 *.log
 *.sqlite3
 */migrations/*
-images/school/
+images/school/*
+static/
+dist/
+xtc.egg-info/
