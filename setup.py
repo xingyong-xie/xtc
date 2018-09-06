@@ -20,8 +20,8 @@ setup(
     scripts = [ "manage.py", "settings.py",
                "uwsgi.py", "__ini__.py"],
 
-    #静态文件等，配合MANIFEST.in (package_data 参数不太好使)
-    include_package_data = True,
+    include_package_data=True,    # 启用清单文件MANIFEST.in
+    exclude_package_date={'':['.gitignore']} ,
 
     #如果是正式的项目，还会有更多的信息（例如开源证书写在下面）
     url = "http://littlegenius.com.cn",
