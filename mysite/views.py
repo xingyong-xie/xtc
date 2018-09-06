@@ -18,10 +18,13 @@ def template_as_view(template_name):
 def courses_view(template_name):
     def view(request):
         list = {}
-        list['picture_list'] = course.objects.filter(active=True)
         return render(request, template_name, list)
     return view
 
+def about_view(template_name):
+    def view(request):
+        return render(request, template_name, {})
+    return view
 
 def signup_submit_view():
     def view(request):
