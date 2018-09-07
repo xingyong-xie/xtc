@@ -1,24 +1,30 @@
-<nav class="navbar navbar-default" role="navigation", style="vertical-align: middle;">
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" , style="vertical-align: middle;">
     <div class="navbar-header" style="height:70px;">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
             <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand"><img style="margin-top:-10px;height:400%;" src="images/logo_2.png"> </a>
+        <a class="navbar-brand"><img style="margin-top:-10px;height:300%;" src="images/logo_2.png"> </a>
 
     </div>
     <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right" id="main-nav" style="margin-top:15px" >
-            <li class="active"><a href="/">首页</a></li>
+        <ul class="nav navbar-nav navbar-right" id="main-nav" style="margin-top:15px">
+            <li ><a href="/">首页</a></li>
             <li> <a href="/about.html"> 教学理念 </a> </li>
             <li> <a href="/courses.html">课程介绍</a></li>
-            <li><a href="/#views">校区风景 </a></li>
-            <li><a href="/#views">每日课堂 </a></li>
+            <li> <a href="/#views">校区风景 </a></li>
+            <!--<li> <a href="/#views">每日课堂 </a></li>  -->
             <li> <a href="signup.html">预约报名</a></li>
         </ul>
         <style type="text/css">
+            .navbar-nav {
+                margin-right: 1rem;
+            }
             .navbar-nav a {
                 text-decoration: none;
+            }
+            .navbar-nav>li>a:hover {
+                font-weight:bold;
             }
         </style>
     </div>
