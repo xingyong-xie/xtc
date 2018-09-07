@@ -1,7 +1,13 @@
 # encoding: utf-8
 from django.contrib import admin
-from mysite.models import student,picture,classGroup,course
+from mysite.models import student,picture,classGroup,course,Article
 from django.utils.safestring import mark_safe
+
+@admin.register(Article)
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ['title','cname',]
+    search_fields =('title', 'cname__name',)
+    list_filter =('cname__name', ) #过滤器
 
 @admin.register(student)
 class StudentAdmin(admin.ModelAdmin):

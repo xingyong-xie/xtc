@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'h$!4u6)7)atd*$-zfmzj0gqm$xg@f4a74xjrx5p=kr)1(0cc33'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mysite',
+    'ckeditor',
+    'ckeditor_uploader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -130,4 +132,35 @@ CACHES = {
         'VERSION': 1,                                                 # 缓存key的版本（默认1）
         #'KEY_FUNCTION' 函数名  #生成key的函数（默认函数会生成为：【前缀:版本:key】）
     }
+}
+
+#CKEDITOR 配置
+
+CKEDITOR_UPLOAD_PATH = "article"
+CKEDITOR_IMAGE_BACKEND = 'pillow'
+CKEDITOR_CONFIGS = {
+    'default': {
+        # 使用简体中文
+        'language':'zh-cn',
+        # 编辑器的宽高请根据你的页面自行设置
+        'width':'auto',
+        'height':'400px',
+        'image_previewText':' ',
+        'tabSpaces': 4,
+        'toolbar': 'Custom',
+        'contentsCss' :'/static/css/main.css' ,
+        # 添加按钮在这里
+        'toolbar': (
+			['div','-','Preview','-','Templates'],
+			['Undo','Redo','-'],
+			['Bold','Italic','Underline'],
+			['NumberedList','BulletedList','-','Outdent','Indent','Blockquote'],
+			['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+			['Link'],
+			['Image','HorizontalRule','PageBreak'],
+			['Format','Font','FontSize'],
+			['TextColor','BGColor'],
+			['Maximize','ShowBlocks','-'],
+		),
+	}
 }

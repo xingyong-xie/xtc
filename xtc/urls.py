@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^index_demo.html', template_as_view("index-demo.html")),
     url(r'^signup.html', signup_submit_view()),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

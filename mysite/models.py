@@ -6,6 +6,8 @@ import django.utils.timezone as timezone
 import django.core.files as File
 from django.conf import settings
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
+from ckeditor_uploader.fields import RichTextUploadingField
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
 import datetime
 
 
@@ -57,3 +59,17 @@ class course(models.Model):
     class Meta:
         verbose_name = "课程图片及介绍"
         verbose_name_plural = "课程图片及介绍"
+
+class Article(models.Model):
+    title = models.CharField(max_length=32, verbose_name="文章标题")
+    cname = models.ForeignKey(classGroup, verbose_name="班级")
+    content = RichTextUploadingField(verbose_name='正文')
+    class Meta:
+        verbose_name = "每日班级图片"
+        verbose_name_plural = "每日班级图片"
+
+# class ArticleForm(forms.ModelForm):
+#     brief = forms.CharField(widget=CKEditorUploadingWidget())
+#     class Meta:
+#         model = Article
+#         fields = "__all__"
