@@ -4,6 +4,7 @@
 *.sqlite3
 */migrations/*
 images/school/*
+images/article/*
 static/
 dist/
 xtc.egg-info/
