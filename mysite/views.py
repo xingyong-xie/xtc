@@ -3,7 +3,7 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.http import HttpResponse
-from mysite.models import student, picture, course
+from mysite.models import onlineQuery,picture
 from django.conf import settings
 from django.views.generic.base import TemplateView
 
@@ -29,7 +29,7 @@ def about_view(template_name):
 def signup_submit_view():
     def view(request):
         if request.method == "POST":  # 判断是不是POST,如果是POST,准备保存修改
-            s = student()
+            s = onlineQuery()
             print request.POST
             s.address = request.POST[u'address']
             s.name = request.POST[u'name']
