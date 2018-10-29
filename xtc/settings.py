@@ -170,3 +170,5 @@ CKEDITOR_CONFIGS = {
 		),
 	}
 }
+
+AUTH_USER_MODEL = "mysite.VmaigUser"

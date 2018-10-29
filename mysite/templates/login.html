@@ -1,0 +1,72 @@
+
+{% extends "base.html" %}
+{% block content %}
+
+<section class="spotlight style4 onload-image-fade-in">
+    <div class="image">
+        <img src="images/xtc_signup.png" alt="">
+    </div>
+    <div class="content" style="background-color:rgba(255,255,255,0); max-width:40%">
+            <p><br/><br/><br/> </p>
+    </div>
+</section>
+
+<section class="wrapper style1 align-center">
+    <div id='register' class="wrapper style1 align-center ">
+        <div class="inner small" style="background-color: rgb(243, 242, 242)">
+            <h3>请登陆</h3>
+            <form method="POST" method="post" id="login-form">
+                {% csrf_token %}
+                <div class="fields ">
+                    <div class="field">
+                        <input type="text" id="login-username" value="" placeholder="用户名" required/>
+                    </div>
+                    <div class="field ">
+                        <input type="password" id="login-password" value="" placeholder="密码" required/>
+                    </div>
+                </div>
+                <ul class="actions special ">
+                    <input type="submit" value="登陆"/>
+                </ul>
+            </form>
+        </div>
+    </div>
+    <script language="javascript" type="text/javascript">
+        $('#login-form').submit(function(){
+            $.ajax({
+                type:"POST",
+                url:"/usercontrol/login",
+                data:{"username":$("#login-username").val(),"password":$("#login-password").val()},
+                beforeSend:function(xhr){
+                    xhr.setRequestHeader("X-CSRFToken", $.cookie('csrftoken'));
+                },
+                success:function(data,textStatus){
+                    var errors = data["errors"];
+                    if(errors.length==0){
+                        location.replace("/");
+                    }
+                    else{
+                        //alert(errors);
+                        var str = ""
+                        for (var key in errors){
+                            str += errors[key]+"\n";
+                        }
+                        alert(str);
+                    }
+
+                },
+                error:function(XMLHttpRequest, textStatus, errorThrown){
+                    alert(XMLHttpRequest.responseText);
+                }
+            });
+            return false;
+        });
+    </script>
+</section>
+
+
+
+{% endblock %}
+
+
+

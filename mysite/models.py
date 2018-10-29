@@ -5,7 +5,8 @@ from django import forms
 import django.utils.timezone as timezone
 import django.core.files as File
 from django.conf import settings
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
+from django.contrib.auth.models import AbstractUser
+from ckeditor_uploader.fields import RichTextUploadingField
 import datetime
 
 
@@ -37,3 +38,44 @@ class picture(models.Model):
         verbose_name = "校区图片及介绍"
         verbose_name_plural = "校区图片及介绍"
 
+class VmaigUser(AbstractUser):
+    img = models.CharField(max_length=200, default='/static/tx/default.jpg',
+                           verbose_name=u'头像地址')
+    intro = models.CharField(max_length=200, blank=True, null=True,
+                             verbose_name=u'简介')
+
+    class Meta(AbstractUser.Meta):
+        verbose_name = "用户信息"
+        verbose_name_plural = "用户信息"
+
+
+class CourseRecord(models.Model):
+    '''上课记录'''
+    from_class = models.ForeignKey("ClassList",verbose_name="班级")
+    day_num = models.PositiveSmallIntegerField(verbose_name="第几节(天)")
+    #teacher = models.ForeignKey("UserProfile", verbose_name="老师")
+    has_homework = models.BooleanField(default=True, verbose_name="是否有家庭作业")
+    homework_title = models.CharField(max_length=128,blank=True,null=True,verbose_name="作业标题")
+    homework_content = models.TextField(blank=True,null=True, verbose_name="作业内容")
+    outline = models.TextField(blank=True,null=True, verbose_name="本节课程大纲")
+    content = RichTextUploadingField(verbose_name='课程图文记录')
+    date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return "%s %s" %(self.from_class, self.day_num)
+
+    class Meta:
+        unique_together = ("from_class", "day_num")
+        verbose_name_plural = "上课记录"
+
+class ClassList(models.Model):
+    '''班级表'''
+    class_name = models.CharField(max_length=128,blank=True,null=True,verbose_name="班级名称")
+    class_content = models.TextField(blank=True,null=True, verbose_name="班级信息")
+
+    def __str__(self):
+        return "%s" %(self.class_name)
+
+    class Meta:
+        verbose_name_plural = "班级"
+        verbose_name = "班级"
