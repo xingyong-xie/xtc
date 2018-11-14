@@ -4,6 +4,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.http import HttpResponse
 from mysite.models import onlineQuery,picture,VmaigUser
+from mysite.models import CourseRecord,ClassMemeber,ClassList
 from django.conf import settings
 from django.views.generic import View
 from django.contrib import auth
@@ -372,3 +373,27 @@ class UserControl(View):
             json.dumps(mydict),
             content_type="application/json"
         )
+
+def class_list_view(template_name):
+    def view(request):
+        list = {}
+        userid = VmaigUser.objects.get(username=request.user)
+        list['class_list'] = ClassMemeber.objects.filter(user=userid).distinct()
+        return render(request, template_name, list)
+    return view
+
+def record_list_view(template_name):
+    def view(request):
+        list = {}
+        param_id = request.GET.get('id')
+        list['class_record_list'] = CourseRecord.objects.filter(id=param_id)
+        return render(request, template_name, list)
+    return view
+
+def record_detail_view(template_name):
+    def view(request):
+        list = {}
+        param_id = request.GET.get('id')
+        list['class_record'] = CourseRecord.objects.get(id=param_id)
+        return render(request, template_name, list)
+    return view

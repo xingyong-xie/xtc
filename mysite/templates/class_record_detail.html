@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block other_resources %}
+<link type="text/css" rel="stylesheet" href="static/ckeditor/ckeditor/plugins/copyformatting/styles/copyformatting.css">
+<link type="text/css" rel="stylesheet" href="static/ckeditor/ckeditor/plugins/tableselection/styles/tableselection.css">
+{% endblock %}
+
+{% block content %}
+
+<section class="cke_editable cke_editable_themed cke_contents_ltr cke_show_borders">
+    {% autoescape off %}
+    {{class_record.record_content}}
+    {% endautoescape %}
+</section>
+
+{% endblock %}

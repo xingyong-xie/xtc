@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section id="course" class="wrapper style1 align-center ">
+    <div class="inner ">
+        <h2> 您的班级列表 </h2>
+    </div>
+    {% for i in class_list %}
+    <div class="items style3 small onscroll-fade-in ">
+        <section>
+            <span class="icon style2 major fa-diamond"></span>
+            <a href="class_record_list.html?id={{i.id}}">
+                <h3>{{i.from_class.class_name}}</h3>
+            </a>
+        </section>
+    </div>
+    {% endfor %}
+</section>
+
+
+
+{% endblock %}

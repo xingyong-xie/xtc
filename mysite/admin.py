@@ -46,3 +46,9 @@ admin.site.register(models.ClassList)
 class CourseRecordAdmin(admin.ModelAdmin):
     list_display = ['__str__','from_class',]
     list_filter =('from_class', ) #过滤器
+
+
+@admin.register(models.ClassMemeber)
+class ClassMemeberAdmin(admin.ModelAdmin):
+    list_display = ['from_class','user',]
+    list_filter =('from_class', ) #过滤器

@@ -44,6 +44,9 @@ class VmaigUser(AbstractUser):
     intro = models.CharField(max_length=200, blank=True, null=True,
                              verbose_name=u'简介')
 
+    def __str__(self):
+        return self.username
+
     class Meta(AbstractUser.Meta):
         verbose_name = "用户信息"
         verbose_name_plural = "用户信息"
@@ -54,11 +57,12 @@ class CourseRecord(models.Model):
     from_class = models.ForeignKey("ClassList",verbose_name="班级")
     day_num = models.PositiveSmallIntegerField(verbose_name="第几节(天)")
     #teacher = models.ForeignKey("UserProfile", verbose_name="老师")
-    has_homework = models.BooleanField(default=True, verbose_name="是否有家庭作业")
-    homework_title = models.CharField(max_length=128,blank=True,null=True,verbose_name="作业标题")
-    homework_content = models.TextField(blank=True,null=True, verbose_name="作业内容")
-    outline = models.TextField(blank=True,null=True, verbose_name="本节课程大纲")
-    content = RichTextUploadingField(verbose_name='课程图文记录')
+    #has_homework = models.BooleanField(default=True, verbose_name="是否有家庭作业")
+    #homework_title = models.CharField(max_length=128,blank=True,null=True,verbose_name="作业标题")
+    #homework_content = models.TextField(blank=True,null=True, verbose_name="作业内容")
+    #outline = models.TextField(blank=True,null=True, verbose_name="本节课程大纲")
+    record_title = models.CharField(max_length=128,blank=True,null=True,verbose_name="课程记录标题")
+    record_content = RichTextUploadingField(verbose_name='课程详细图文')
     date = models.DateField(auto_now_add=True)
 
     def __str__(self):
@@ -66,7 +70,7 @@ class CourseRecord(models.Model):
 
     class Meta:
         unique_together = ("from_class", "day_num")
-        verbose_name_plural = "上课记录"
+        verbose_name_plural = "班级课程记录"
 
 class ClassList(models.Model):
     '''班级表'''
@@ -77,5 +81,14 @@ class ClassList(models.Model):
         return "%s" %(self.class_name)
 
     class Meta:
-        verbose_name_plural = "班级"
-        verbose_name = "班级"
+        verbose_name = verbose_name_plural = "班级信息"
+
+
+class ClassMemeber(models.Model):
+    from_class = models.ForeignKey("ClassList",verbose_name="班级")
+    user = models.ForeignKey("VmaigUser",verbose_name="用户")
+
+    def __str__(self):
+        return "%s %s" %(self.from_class, self.user)
+    class Meta:
+        verbose_name = verbose_name_plural = "班级成员"
